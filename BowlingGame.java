@@ -53,14 +53,14 @@ public class BowlingGame{
 
     public String toString(){
         return (
-        "Strikes: " + strikes +
-        "Spares: " + spares +
-        "Gutter Balls: " + gutter_balls +
-        "Rental Shoes: " + rental_shoes + 
-        "Splits: " + split_pins +
-        "Misses: " + misses +
-        "Turns with no spares: " + no_spares +
-        "Mechanical Failures: " + machine_failures);
+        "Strikes: " + strikes + "\n" +
+        "Spares: " + spares + "\n" +
+        "Gutter Balls: " + gutter_balls + "\n" +
+        "Rental Shoes: " + rental_shoes + "\n" + 
+        "Splits: " + split_pins + "\n" +
+        "Misses: " + misses + "\n" +
+        "Turns with no spares: " + no_spares + "\n" +
+        "Mechanical Failures: " + machine_failures + "\n");
     }
 
 }

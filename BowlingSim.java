@@ -11,14 +11,14 @@ public class BowlingSim {
     public ArrayList<BowlingGame> gameQueue = new ArrayList<BowlingGame>(numOfGames);
 
     //Min/Max Values for Simulation
-    private strikeMin = 0;
-    private StrikeMax = 10;
-    private spareMin = 0;
-    priavte spareMax = 10;
+    private int strikeMin = 0;
+    private int StrikeMax = 10;
+    private int spareMin = 0;
+    private int spareMax = 10;
 
     public BowlingSim() {
         //Game Queue with one 'dummy' game placeholder if no games are given
-        gameQueue[0] = new BowlingGame(0, 0, 0, 0, 0, 0, 0, 0);
+        gameQueue.add(new BowlingGame(0, 0, 0, 0, 0, 0, 0, 0));
     }
 
     //Main Constructor for Driver Program
@@ -35,8 +35,8 @@ public class BowlingSim {
 
 
 
-    public createGames(int numOfGames){
-        for (int i = 0; i < gameQueue.length(); i++){
+    public void createGames(int numOfGames){
+        for (int i = 0; i < gameQueue.size(); i++){
             gameQueue.add(
                 new BowlingGame(
                     strikeData(),
@@ -85,6 +85,12 @@ public class BowlingSim {
         return ((random.nextInt()));
     }
 
-
+    public String toString(){
+        String fullGames = "";
+        for(int i = 0; i < gameQueue.size(); i++){
+            fullGames += gameQueue.get(i).toString() + "\n";
+        }
+        return fullGames;
+    }
    
 }
