@@ -15,10 +15,12 @@ public class BowlingDriver {
         System.out.println("====== Bowler Simulator! ======");
         System.out.println("Enter # of Bowlers to simulate:");
         playerNum = sc.nextInt();
+        sc.close();
 
         
 
         BowlingSim bowlingSim = new BowlingSim(playerNum);
+        System.out.println(bowlingSim.strikeDebug());
         System.out.println(bowlingSim.toString());
         
 

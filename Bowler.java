@@ -5,18 +5,16 @@ public class Bowler{
     public int strikes;
     public int spares;
     public int gutter_balls;
-    public int rental_shoes;
     public int split_pins;
     public int misses;
     public int no_spares;
     
 
-    public Bowler(int bowlerid, int strikes, int spares, int gutter_balls, int rental_shoes, int split_pins, int misses, int no_spares){
+    public Bowler(int bowlerid, int strikes, int spares, int gutter_balls, int split_pins, int misses, int no_spares){
         this.bowlerid = bowlerid;
         this.strikes = strikes;
         this.spares = spares;
         this.gutter_balls = gutter_balls;
-        this.rental_shoes = rental_shoes;
         this.split_pins = split_pins;
         this.misses = misses;
         this.no_spares = no_spares;
@@ -38,10 +36,6 @@ public class Bowler{
         return gutter_balls;
     }
 
-    public int getRentals(){
-        return rental_shoes;
-    }
-
     public int getSplits(){
         return split_pins;
     }
@@ -60,8 +54,7 @@ public class Bowler{
         "====== Bowler # " + bowlerid + " stats ======\n\n" + 
         "Strikes: " + strikes + "\n" +
         "Spares: " + spares + "\n" +
-        "Gutter Balls: " + gutter_balls + "\n" +
-        "Rental Shoes: " + rental_shoes + "\n" + 
+        "Gutter Balls: " + gutter_balls + "\n" + 
         "Splits: " + split_pins + "\n" +
         "Misses: " + misses + "\n" +
         "Turns with no spares: " + no_spares + "\n");

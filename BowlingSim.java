@@ -12,36 +12,17 @@ public class BowlingSim {
 
     public ArrayList<Bowler> playerQueue = new ArrayList<Bowler>(numOfPlayers);
 
-    //Min/Max Values for Calculations
-    private int strikeMin = 0;
-    private int StrikeMax = 10;
-
-    private int spareMin = 0;
-    private int spareMax = 10;
-
-    private int gutterMin = 0;
-    private int gutterMax = 10;
-
-    private int rentalShoesMin = 0;
-    private int rentalShoesMax = 10;
-
-    private int splitMin = 0;
-    private int splitMax = 10;
-
-    private int missMin = 0;
-    private int missMax = 10;
-
-    private int noSpareMin = 0;
-    private int noSpareMax = 10;
+    //debugging variables
+    int zeroToOne = 0;
+    int twoToFive = 0;
+    int sixToNine = 0;
     
-    private int mechanicalMin = 0;
-    private int mechanicalMax = 10;
 
 
 
     public BowlingSim() {
         //Game Queue with one 'dummy' game placeholder if no games are given
-        playerQueue.add(new Bowler(0, 0, 0, 0, 0, 0, 0, 0));
+        playerQueue.add(new Bowler(0, 0, 0, 0, 0, 0, 0));
     }
 
     //Main Constructor for Driver Program
@@ -65,8 +46,7 @@ public class BowlingSim {
                         bowlerNum,
                         strikeData(),
                         spareData(), 
-                        gutterData(), 
-                        rentalData(), 
+                        gutterData(),  
                         splitData(), 
                         missData(), 
                         noSpareData()));
@@ -80,27 +60,37 @@ public class BowlingSim {
     
     public int strikeData(){
 
-        //from Pseudocode Dan O. wrote in class 
+        //from Pseudocode Dan O. wrote in class
+        // 0.0 - 0.22: 0-1 Strikes
+        // 0.22 - 0.63: 2-5 Strikes
+        // 0.63 - 1.0: 6-9 Strikes
+
+        
+
         int r = random.nextInt(numOfPlayers);
         int r2 = 0;
 
         if(r <= 22){
             r2 = random.nextInt(2);
+            zeroToOne++;
         } else if (r > 22 && r <= 63){
             int result = random.nextInt(6);
 		        while(result < 2 || result >= 6) {
 			        result = random.nextInt(6);
 		        }
             r2 = result;
+            twoToFive++;
+            
         } else {
             int result = random.nextInt(9);
 		        while(result < 6 || result >= 9) {
 			        result = random.nextInt(9);
 		        }
             r2 = result;
+            sixToNine++;
 
         }
-
+        
         return (r2);
     }
 
@@ -109,10 +99,6 @@ public class BowlingSim {
     }
 
     public int gutterData(){
-        return (0);
-    }
-
-    public int rentalData(){    
         return (0);
     }
 
@@ -132,6 +118,10 @@ public class BowlingSim {
     //Balking 
     public int addBalking(){
         return 0;
+    }
+
+    public String strikeDebug(){
+        return "Strike Distributions:\n" + zeroToOne + ": 1-2 Strikes\n" + twoToFive + ": 2-5 Strikes\n" + sixToNine + ": 6-9 Strikes\n\n";
     }
 
     public String toString(){
