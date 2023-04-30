@@ -1,4 +1,7 @@
-public class BowlingGame{
+//Bowler Class
+
+public class Bowler{
+    public int bowlerid;
     public int strikes;
     public int spares;
     public int gutter_balls;
@@ -6,9 +9,10 @@ public class BowlingGame{
     public int split_pins;
     public int misses;
     public int no_spares;
-    public int machine_failures;
+    
 
-    public BowlingGame(int strikes, int spares, int gutter_balls, int rental_shoes, int split_pins, int misses, int no_spares, int machine_failures){
+    public Bowler(int bowlerid, int strikes, int spares, int gutter_balls, int rental_shoes, int split_pins, int misses, int no_spares){
+        this.bowlerid = bowlerid;
         this.strikes = strikes;
         this.spares = spares;
         this.gutter_balls = gutter_balls;
@@ -16,7 +20,10 @@ public class BowlingGame{
         this.split_pins = split_pins;
         this.misses = misses;
         this.no_spares = no_spares;
-        this.machine_failures = machine_failures;
+    }
+
+    public int getBowlerID(){
+        return bowlerid;
     }
 
     public int getStrikes(){
@@ -47,20 +54,17 @@ public class BowlingGame{
         return no_spares;
     }
 
-    public int getMachineFailures(){
-        return machine_failures;
-    }
 
     public String toString(){
         return (
+        "====== Bowler # " + bowlerid + " stats ======\n\n" + 
         "Strikes: " + strikes + "\n" +
         "Spares: " + spares + "\n" +
         "Gutter Balls: " + gutter_balls + "\n" +
         "Rental Shoes: " + rental_shoes + "\n" + 
         "Splits: " + split_pins + "\n" +
         "Misses: " + misses + "\n" +
-        "Turns with no spares: " + no_spares + "\n" +
-        "Mechanical Failures: " + machine_failures + "\n");
+        "Turns with no spares: " + no_spares + "\n");
     }
 
 }

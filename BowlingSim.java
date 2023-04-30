@@ -7,8 +7,10 @@ import java.lang.Math;
 public class BowlingSim {
     
     Random random = new Random();
-    int numOfGames = 10;
-    public ArrayList<BowlingGame> gameQueue = new ArrayList<BowlingGame>(numOfGames);
+    int numOfPlayers;
+    int bowlerNum = 1;
+
+    public ArrayList<Bowler> playerQueue = new ArrayList<Bowler>(numOfPlayers);
 
     //Min/Max Values for Calculations
     private int strikeMin = 0;
@@ -39,72 +41,93 @@ public class BowlingSim {
 
     public BowlingSim() {
         //Game Queue with one 'dummy' game placeholder if no games are given
-        gameQueue.add(new BowlingGame(0, 0, 0, 0, 0, 0, 0, 0));
+        playerQueue.add(new Bowler(0, 0, 0, 0, 0, 0, 0, 0));
     }
 
     //Main Constructor for Driver Program
-    public BowlingSim(int numOfGames) {
-        this.numOfGames = numOfGames;
-        createGames(numOfGames);
+    public BowlingSim(int numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
+        createPlayers(numOfPlayers);
     }
 
 
-    public ArrayList<BowlingGame> getGameQueue(){
-        return gameQueue;
+    public ArrayList<Bowler> getPlayerQueue(){
+        return playerQueue;
     }
 
 
 
 
-    public void createGames(int numOfGames){
-        for (int i = 0; i < gameQueue.size(); i++){
-            gameQueue.add(
-                new BowlingGame(
+    public void createPlayers(int numOfPlayers){
+        for (int i = 0; i < numOfPlayers; i++){
+            playerQueue.add(
+                new Bowler(
+                        bowlerNum,
                         strikeData(),
                         spareData(), 
                         gutterData(), 
                         rentalData(), 
                         splitData(), 
                         missData(), 
-                        noSpareData(), 
-                        machineFailureData()));
+                        noSpareData()));
+                bowlerNum++;
         }
+        
     }
 
 
     //Logic for inputting random variables into simulation
     
     public int strikeData(){
-        return ((random.nextInt()));
+
+        //from Pseudocode Dan O. wrote in class 
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+
+        }
+
+        return (r2);
     }
 
     public int spareData(){
-        return ((random.nextInt()));
+        return (0);
     }
 
     public int gutterData(){
-        return ((random.nextInt()));
+        return (0);
     }
 
     public int rentalData(){    
-        return ((random.nextInt()));
+        return (0);
     }
 
     public int splitData(){
-        return ((random.nextInt()));
+        return (0);
     }
 
     public int missData(){
-        return ((random.nextInt()));
+        return (0);
     }
 
     public int noSpareData(){
-        return ((random.nextInt()));
+        return (0);
     }
 
-    public int machineFailureData(){
-        return ((random.nextInt()));
-    }
 
     //Balking 
     public int addBalking(){
@@ -112,11 +135,11 @@ public class BowlingSim {
     }
 
     public String toString(){
-        String fullGames = "";
-        for(int i = 0; i < gameQueue.size(); i++){
-            fullGames += gameQueue.get(i).toString() + "\n";
+        String allPlayers = "";
+        for(int i = 0; i < playerQueue.size(); i++){
+            allPlayers += playerQueue.get(i).toString() + "\n";
         }
-        return fullGames;
+        return allPlayers;
     }
    
 }
