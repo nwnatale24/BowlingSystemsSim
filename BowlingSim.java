@@ -95,23 +95,153 @@ public class BowlingSim {
     }
 
     public int spareData(){
-        return (0);
+
+        //if statements need to have changed values for data
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+            zeroToOne++;
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+            twoToFive++;
+            
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+            sixToNine++;
+
+        }
+        
+        return (r2);
     }
 
     public int gutterData(){
-        return (0);
+        
+        //if statements need to have changed values for data
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+            zeroToOne++;
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+            twoToFive++;
+            
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+            sixToNine++;
+
+        }
+        
+        return (r2);
     }
 
     public int splitData(){
-        return (0);
+        
+        //if statements need to have changed values for data
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+            zeroToOne++;
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+            twoToFive++;
+            
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+            sixToNine++;
+
+        }
+        
+        return (r2);
     }
 
     public int missData(){
-        return (0);
+
+        //if statements need to have changed values for data
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+            zeroToOne++;
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+            twoToFive++;
+            
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+            sixToNine++;
+
+        }
+        
+        return (r2);
     }
 
     public int noSpareData(){
-        return (0);
+        
+        //if statements need to have changed values for data
+        int r = random.nextInt(numOfPlayers);
+        int r2 = 0;
+
+        if(r <= 22){
+            r2 = random.nextInt(2);
+            zeroToOne++;
+        } else if (r > 22 && r <= 63){
+            int result = random.nextInt(6);
+		        while(result < 2 || result >= 6) {
+			        result = random.nextInt(6);
+		        }
+            r2 = result;
+            twoToFive++;
+            
+        } else {
+            int result = random.nextInt(9);
+		        while(result < 6 || result >= 9) {
+			        result = random.nextInt(9);
+		        }
+            r2 = result;
+            sixToNine++;
+
+        }
+        
+        return (r2);
     }
 
 
