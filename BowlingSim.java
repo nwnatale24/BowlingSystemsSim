@@ -1,7 +1,6 @@
 
 import java.util.Random;
 import java.util.ArrayList;
-import java.lang.Math;
 
 
 public class BowlingSim {
@@ -13,30 +12,12 @@ public class BowlingSim {
     public ArrayList<Bowler> playerQueue = new ArrayList<Bowler>(numOfPlayers);
 
     //debugging variables
-    int zeroToOneStrikes = 0;
-    int twoToThreeStrikes = 0;
-    int threeToFiveStrikes = 0;
-    int sixToNineStrikes = 0;
-    int zeroToOneSpares = 0;
-    int twoToThreeSpares = 0;
-    int threeToFiveSpares = 0;
-    int sixToNineSpares = 0;
-    int zeroToOneGB = 0;
-    int twoToThreeGB = 0;
-    int threeToFiveGB = 0;
-    int sixToNineGB = 0;
-    int zeroToOneSplit = 0;
-    int twoToThreeSplit = 0;
-    int threeToFiveSplit = 0;
-    int sixToNineSplit = 0;
-    int zeroToOneMiss = 0;
-    int twoToThreeMiss = 0;
-    int threeToFiveMiss = 0;
-    int sixToNineMiss = 0;
-    int zeroToOneNoSpare = 0;
-    int twoToThreeNoSpare = 0;
-    int threeToFiveNoSpare = 0;
-    int sixToNineNoSpare = 0;
+    int totalStrikes=0;
+    int totalSpares=0;
+    int totalGB=0;
+    int totalSplit=0;
+    int totalMiss=0;
+    int totalNoSpares=0;
     
 
 
@@ -92,23 +73,19 @@ public class BowlingSim {
         int r2 = 0; //This variable will determine the actual number of stikes onces the proper range is determined
 
         if(r <= 22){ 
-            r2 = random.nextInt(0,2);
-            zeroToOneStrikes++;
+            r2 = random.nextInt(0,2); 
         }
          else if (r > 22 && r <= 68){
             r2 = random.nextInt(2,4);
-            twoToThreeStrikes++;
         }  
         else if (r > 68 && r <= 93){
              r2 = random.nextInt(4,6);
-             threeToFiveStrikes++;
-
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNineStrikes++;
+            
         }
-        
+        totalStrikes += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
 
@@ -126,22 +103,17 @@ public class BowlingSim {
 
         if(r <= 24){ 
             r2 = random.nextInt(0,2);
-            zeroToOne++;
         }
          else if (r > 24 && r <= 70){
             r2 = random.nextInt(2,4);
-            twoToThree++;
         }  
         else if (r > 70 && r <= 94){
              r2 = random.nextInt(4,6);
-             threeToFive++;
-
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNine++;
         }
-        
+        totalSpares += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
 
@@ -159,22 +131,18 @@ public class BowlingSim {
 
         if(r <= 23){ 
             r2 = random.nextInt(0,2);
-            zeroToOne++;
         }
          else if (r > 23 && r <= 70){
             r2 = random.nextInt(2,4);
-            twoToThree++;
         }  
         else if (r > 70 && r <= 94){
              r2 = random.nextInt(4,6);
-             threeToFive++;
 
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNine++;
         }
-        
+        totalGB += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
 
@@ -192,22 +160,18 @@ public class BowlingSim {
 
         if(r <= 43){ 
             r2 = random.nextInt(0,2);
-            zeroToOne++;
         }
          else if (r > 43 && r <= 87){
             r2 = random.nextInt(2,4);
-            twoToThree++;
         }  
         else if (r > 87 && r <= 99){
              r2 = random.nextInt(4,6);
-             threeToFive++;
 
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNine++;
         }
-        
+        totalSplit += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
     public int missData(){
@@ -224,22 +188,19 @@ public class BowlingSim {
 
         if(r <= 41){ 
             r2 = random.nextInt(0,2);
-            zeroToOne++;
         }
          else if (r > 41 && r <= 86){
             r2 = random.nextInt(2,4);
-            twoToThree++;
         }  
         else if (r > 86 && r <= 99){
              r2 = random.nextInt(4,6);
-             threeToFive++;
+
 
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNine++;
         }
-        
+        totalMiss += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
 
@@ -257,22 +218,18 @@ public class BowlingSim {
 
         if(r <= 12){ 
             r2 = random.nextInt(0,2);
-            zeroToOne++;
         }
          else if (r > 12 && r <= 50){
             r2 = random.nextInt(2,4);
-            twoToThree++;
         }  
         else if (r > 50 && r <= 83){
              r2 = random.nextInt(4,6);
-             threeToFive++;
 
         }
          else {
             r2 = random.nextInt(6,9);
-            sixToNine++;
         }
-        
+        totalNoSpares += r2;
         return (r2); //Returns the value of number of strikes for a particular bowler in 10 frames
     }
 
@@ -283,7 +240,8 @@ public class BowlingSim {
     }
 
     public String strikeDebug(){
-        return "Strike Distributions:\n" + zeroToOne + ": 1-2 Strikes\n" + twoToFive + ": 2-5 Strikes\n" + sixToNine + ": 6-9 Strikes\n\n";
+        return "Total Statistic Distributions:\n" + totalStrikes + ": # of Strikes\n" + totalSpares + ": # of Spares\n" + totalGB + ": # of Gutter Balls\n" 
+        + totalSplit + ": # of Splits\n" + totalMiss + ": # of Total Misses\n" + + totalNoSpares + ": # of Frames with no strike or spare\n\n" ;
     }
 
     public String toString(){
